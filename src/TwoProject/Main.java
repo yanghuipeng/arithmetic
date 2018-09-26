@@ -1,72 +1,41 @@
 package TwoProject;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 		// TODO 自动生成的方法存根
-//		int titleNum; // 定义题目个数
-//		int parameterRange; // 定义参数范围
-//		while (true) {
-//			titleNum = -1;
-//			System.out.println("请输入题目个数指令:");
-//			InputStream iStream = System.in;
-//			InputStreamReader inputStreamReader = new InputStreamReader(iStream);
-//			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//			String str = bufferedReader.readLine();
-//			String[] strings = str.split("\\s");
-//			for (int i = 0; i < strings.length; i++) {
-//				if (strings[i].equals("-n")) {
-//					if (i + 1 < strings.length) {
-//						titleNum = Integer.valueOf(strings[i + 1]);
-//						// System.out.println(titleNum);
-//						break;
-//					} else {
-//						System.out.println("指令参数没有输入，请重新输入指令。");
-//						titleNum = -2;
-//					}
-//				}
-//			}
-//			if (titleNum == -1) {
-//				System.out.println("指令类型没有输入，请重新输入指令。");
-//			} else if (titleNum != -2) {
-//				break;
-//			}
-//		}
-//		while (true) {
-//			parameterRange = -1;
-//			System.out.println("请输入参数范围指令:");
-//			InputStream iStream = System.in;
-//			InputStreamReader inputStreamReader = new InputStreamReader(iStream);
-//			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//			String str = bufferedReader.readLine();
-//			String[] strings = str.split("\\s");
-//			for (int i = 0; i < strings.length; i++) {
-//				if (strings[i].equals("-r")) {
-//					if (i + 1 < strings.length) {
-//						parameterRange = Integer.valueOf(strings[i + 1]);
-//						// System.out.println(parameterRange);
-//						break;
-//					} else {
-//						System.out.println("指令参数没有输入，请重新输入指令。");
-//						parameterRange = -2;
-//					}
-//				}
-//			}
-//			if (parameterRange == -1) {
-//				System.out.println("指令类型没有输入，请重新输入指令。");
-//			} else if (parameterRange != -2) {
-//				break;
-//			}
-//		}
-		
-		
-		Expression expression=new Expression(10, 10);
-		//for(int i=0;i<50;i++) {
-			System.out.println(expression.getResult());
-		//}
+		int titleNum; // 定义题目个数
+		int parameterRange; // 定义参数范围
+		 System.out.println("**** -n [数值]     使用 -n 参数控制生成题目的个数");
+		    System.out.println("**** -e <exercisefile>.txt -a <answerfile>.txt  对给定的题目文件和答案文件，判定答案中的对错并进行数量统计");
+		    System.out.print("请输入命令：");
+		    Scanner s = new Scanner(System.in);
+		    String m =s.nextLine();
+		    String str[]=m.split("\\s");
+		    switch (str[0]){
+		        case "-n":
+		        	titleNum=Integer.valueOf(str[1].toString());
+		            System.out.println("**** -r [数值]     使用 -r 参数控制题目中数值（自然数、真分数）的范围");
+		            System.out.print("请输入命令：");
+		            Scanner ss = new Scanner(System.in);
+		            String n = ss.nextLine();
+		            String strr[]=n.split("\\s");
+		            parameterRange=Integer.valueOf(strr[1].toString());
+		            Function function=new Function(titleNum,parameterRange);
+		    		function.outputExercises();
+		            break;
+		        case "-e":
+		          //  answerJudge.Judge(arr[1], arr[3]);
+		            break;
+		        default:
+		            System.out.println("输入的命令有误!");break;
+		    }
+		    s.close();
+					
+   }
+ 
 	
-		
-	}
 }

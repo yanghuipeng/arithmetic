@@ -5,9 +5,8 @@ public class Fraction {
 	private int a; // 定义分子
 	private int b; // 定义分母
 
-	public Fraction(String string)   { // 将数字的字符串形式转换为整数、分数形式
+	public Fraction(String string) { // 将数字的字符串形式转换为整数、分数形式
 		string = string.trim(); // 清除前后空格
-		
 		int c = string.indexOf("'"); // 求带分数标志“'”的索引
 		int d = string.indexOf("/"); // 求分数标志“/”的索引
 		if (c != -1) { // 数字为带分数
@@ -29,7 +28,7 @@ public class Fraction {
 	}
 
 	// 数字形式转换为字符串形式
-	public String toString()  {
+	public String toString() {
 		if (b == 1) {
 			return String.valueOf(a);
 		} else {
@@ -38,7 +37,6 @@ public class Fraction {
 				return String.format("%d'%d/%d", i, a - b * i, b);
 			} else {
 				return String.format("%d/%d", a, b);
-				
 			}
 		}
 	}
@@ -77,5 +75,9 @@ public class Fraction {
 	// 除法a/b
 	public Fraction division(Fraction fraction) {
 		return new Fraction(this.a * fraction.b, b * fraction.a);
+	}
+
+	public double getDouble() {
+		return a / b;
 	}
 }
