@@ -18,7 +18,10 @@ public class Expression {
 	boolean isWrong = false;
 	String s;
 	ThreadLocalRandom random = ThreadLocalRandom.current();
-
+    public Expression(String string) {
+    	s=string.trim();
+    	expreGenerate(s);
+    }
 	public Expression(int parameterRange) {
 		super();
 		this.parameterRange = parameterRange;
